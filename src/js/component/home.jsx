@@ -1,26 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+  const [selectedLight, setSelectedLight] = useState("");
+
+  const redLightClassNames = ["light", "red"];
+  if (selectedLight === "red") {
+    redLightClassNames.push("active");
+  }
+
+  const yellowLightClassNames = ["light", "yellow"];
+  if (selectedLight === "yellow") {
+    yellowLightClassNames.push("active");
+  }
+
+  const greenLightClassNames = ["light", "green"];
+  if (selectedLight === "green") {
+    greenLightClassNames.push("active");
+  }
+
+  return (
+    <div className="text-center">
+	  <div className="traffic-hanger"></div>
+      <div className="traffic-light">
+        <div className={redLightClassNames.join(" ")} onClick={() => setSelectedLight("red")}></div>
+        <div className={yellowLightClassNames.join(" ")} onClick={() => setSelectedLight("yellow")}></div>
+        <div className={greenLightClassNames.join(" ")} onClick={() => setSelectedLight("green")}></div>
+      </div>
+    </div>
+  );
 };
 
 export default Home;
