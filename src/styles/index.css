@@ -30,6 +30,9 @@
 .green {
     background-color: rgb(39, 199, 39);
 }
+.purple {
+    background-color: rgb(158, 44, 158);
+}
 .active {
     box-shadow: 
     0 0 40px rgba(255, 255, 255, 1), 
